@@ -1,0 +1,25 @@
+# PowerShell command to test token retrieval from Microsoft Identity platform
+# ----------------------------------------------------------------------------
+
+$tenantId = "a97c2aa5-820a-4563-aa4e-e7d320ce3277"
+$clientId = "b4403485-552b-4c1a-8162-babf86aa187b"
+$clientSecret = "QwfPhjc8JWN/sC9Q1MJnZZX3P4V7GItEROnazhaA8aE="
+$scope = "https://graph.microsoft.com/.default"
+
+$body = @{
+    client_id     = $clientId
+    scope         = $scope
+    client_secret = $clientSecret
+    grant_type    = "client_credentials"
+}
+
+$response = Invoke-RestMethod -Method Post `
+    -Uri "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token" `
+    -ContentType "application/x-www-form-urlencoded" `
+    -Body $body
+
+# Print access token
+$response.access_token
+
+
+gradle -v

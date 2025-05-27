@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.apache.http: DEBUG
+    org.apache.http.wire: DEBUG
+
+webhook:
+  url: "https://prod-75.southeastasia.logic.azure.com:443/workflows/ea1512882db94652ae66c276cb4e651d/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=U1MBcOJqgGPPO_uaYKI7hD57LiZ5Tt12KijJtwr-2sQ"
